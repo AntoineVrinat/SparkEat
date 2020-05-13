@@ -1,5 +1,6 @@
 package fr.formation.config;
 
-public class JpaConfig {
+public class JpaConfig 
+{
 
 }

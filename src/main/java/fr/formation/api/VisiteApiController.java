@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAOVisite;
-import fr.formation.model.Visite;
 import fr.formation.projection.Views;
 
 @RestController 
@@ -24,43 +22,5 @@ import fr.formation.projection.Views;
 @RequestMapping("/api/visite")
 public class VisiteApiController 
 {
-	@Autowired
-	private IDAOVisite daoVisite; 
 	
-	@GetMapping
-	@JsonView(Views.Visite.class)
-	public List<Visite> findAll()
-	{
-		return null;
-	}
-	
-	//Une visite
-	@GetMapping ("/{id}")
-	@JsonView(Views.Visite.class)
-	public Visite findById(@PathVariable int id)
-	{
-		return new Visite();
-	}
-	
-	//Ajoute Une visite
-	@PostMapping // requestBody convertit JSON via Spring
-	public Visite add(@RequestBody Visite visite)
-	{
-		return visite;
-	}
-	
-	//Modifie Une visite
-	@PutMapping("/{id}")
-	public Visite update(@PathVariable int id, @RequestBody Visite visite)
-	{
-		return visite;
-	}
-	
-	//Supprime Une visite
-	@DeleteMapping ("/{id}")
-	public Visite delete(@PathVariable int id)
-	{
-		return new Visite();
-	}
-
 }
