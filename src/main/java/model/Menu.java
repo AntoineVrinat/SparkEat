@@ -2,11 +2,13 @@ package model;
 
 public class Menu {
 	
+	protected int id;
 	protected double prix;
 	protected String plat;
 	protected String boisson;
 	
 	protected Menu(double prix, String plat, String boisson) {
+		this.id = id;
 		this.prix = prix;
 		this.plat = plat;
 		this.boisson = boisson;
@@ -15,6 +17,15 @@ public class Menu {
 	protected Menu() {
 	}
 
+	
+	public double getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public double getPrix() {
 		return prix;
 	}

@@ -2,42 +2,44 @@ package model;
 
 public class Restaurant 
 {
-	protected String Plat;
-	
 	protected int FourchettePrix; 
-	
 	protected String Nom;
+	protected Menu Menu;
 	
-	public String getPlat() {
-		return Plat;
+	protected Restaurant(int fourchettePrix, String nom, model.Menu menu) {
+		FourchettePrix = fourchettePrix;
+		Nom = nom;
+		Menu = menu;
 	}
-	public void setPlat(String plat) {
-		Plat = plat;
-	}
+
 	public int getFourchettePrix() {
 		return FourchettePrix;
 	}
-	public void setFourchettePrix(int fourchetteprix) {
-		FourchettePrix = fourchetteprix;
+
+	public void setFourchettePrix(int fourchettePrix) {
+		FourchettePrix = fourchettePrix;
 	}
+
 	public String getNom() {
 		return Nom;
 	}
+
 	public void setNom(String nom) {
 		Nom = nom;
 	}
-	
-	protected Restaurant(String plat, int fourchetteprix, String nom) 
-	{
-		Plat = plat;
-		FourchettePrix = fourchetteprix;
-		Nom = nom;
+
+	public Menu getMenu() {
+		return Menu;
 	}
-	
+
+	public void setMenu(Menu menu) {
+		Menu = menu;
+	}
+
 	@Override
 	public String toString() {
-		return "Restaurant [Plat=" + Plat + ", FouchettePrix=" + FourchettePrix + ", Nom=" + Nom + "]";
-	} 
+		return "Restaurant [FourchettePrix=" + FourchettePrix + ", Nom=" + Nom + ", Menu=" + Menu + "]";
+	}
 	
 	
 
