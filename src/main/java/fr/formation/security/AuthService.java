@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import fr.formation.dao.IDAOCompte;
+import fr.formation.dao.IDAOClient;
 import fr.formation.model.Compte;
 
 
@@ -16,7 +16,7 @@ import fr.formation.model.Compte;
 public class AuthService implements UserDetailsService
 {	
 	@Autowired
-	IDAOCompte daocompte;
+	IDAOClient daocompte;
 
 	@Override
 	public	UserDetails loadUserByUsername(String username ) throws UsernameNotFoundException
