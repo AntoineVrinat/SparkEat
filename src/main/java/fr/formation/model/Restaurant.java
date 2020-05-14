@@ -23,7 +23,7 @@ import javax.persistence.Table;
 public class Restaurant
 {
 	@Id
-	@Column(name = "id_R", length = 11, nullable=false)
+	@Column(name = "id_r", length = 11, nullable=false)
 	protected int id;
 	
 	
