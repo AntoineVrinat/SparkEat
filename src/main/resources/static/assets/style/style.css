@@ -1,0 +1,27 @@
+html{
+	background-image: url("../img.Background.jpg");
+	background-position: fixed;
+	background-repeat: no-repeat;
+}
+
+body{
+	font-family: Arial, sans-serif;
+	text-align: left;
+	overflow: hidden;
+	opacity: 0;
+	user-select: text;
+	
+}
+
+#home #logo img {
+	position: absolute;
+	width: 10%;
+	top: 10%;
+	left: 10px;
+	cursor: none;
+
+}
+
+
+
+#error{color:red;}

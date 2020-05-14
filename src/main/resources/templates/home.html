@@ -1,0 +1,35 @@
+<html th:replace="~{ layout.html :: layout(~{ ::body }, ~{ ::script }, ~{ ::bootstrap }) }">
+
+	<bootstrap></bootstrap>
+	
+<body>
+	<div id="home">
+		<div id="logo"><img src="assets/img/logo.jpg"></div>
+		<div id="accueil">
+			<ul>
+				<li><a id="connect" href="#">Se connecter</a></li>
+				<li><a id="inscription" href="#">S'inscrire</a></li>
+			</ul>
+		
+		
+		</div>
+	
+	</div>
+</body>
+
+<script type="text/javascript">
+
+window.onclick = accueil;
+
+
+
+function accueil(a) {
+	if (a.target.id == "connect" || a.target.id == "inscription"){
+		window.location.href = ("${pageContext.request.contextPath}/" + a.target.id);
+	}
+}
+
+</script>
+
+
+</html>

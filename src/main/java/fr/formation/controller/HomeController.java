@@ -12,10 +12,10 @@ public class HomeController
 	
 	private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@GetMapping({"/connect" })
-	public String connect() 
+	@GetMapping({"/home" })
+	public String home() 
 	{
-		return "connect";
+		return "home";
 	}
 	
 	

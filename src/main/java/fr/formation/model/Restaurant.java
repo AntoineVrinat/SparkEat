@@ -2,45 +2,23 @@ package fr.formation.model;
 
 public class Restaurant 
 {
-
-	protected String Plat;
-	protected int FourchettePrix; 
-	protected String Nom;
-	protected Menu Menu;
+	protected int fourchettePrix; 
+	protected String nom;
+	protected Menu menu;
+	protected Cuisines cuisines;
 	
-	protected Restaurant(int fourchettePrix, String nom, fr.formation.model.Menu menu) {
-		FourchettePrix = fourchettePrix;
-		Nom = nom;
-		Menu = menu;
+	protected Restaurant(int fourchettePrix, String nom, Menu menu, Cuisines cuisines) {
+		this.fourchettePrix = fourchettePrix;
+		this.nom = nom;
+		this.menu = menu;
+		this.cuisines = cuisines;
 	}
 
-	public int getFourchettePrix() {
-		return FourchettePrix;
-	}
-
-	public void setFourchettePrix(int fourchettePrix) {
-		FourchettePrix = fourchettePrix;
-	}
-
-	public String getNom() {
-		return Nom;
-	}
-
-	public void setNom(String nom) {
-		Nom = nom;
-	}
-
-	public Menu getMenu() {
-		return Menu;
-	}
-
-	public void setMenu(Menu menu) {
-		Menu = menu;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Restaurant [FourchettePrix=" + FourchettePrix + ", Nom=" + Nom + ", Menu=" + Menu + "]";
+		return "Restaurant [FourchettePrix=" + fourchettePrix + ", Nom=" + nom + ", Menu=" + menu + "]";
 	}
 	
 	

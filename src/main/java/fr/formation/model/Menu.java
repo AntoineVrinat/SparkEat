@@ -8,7 +8,6 @@ public class Menu {
 	protected String boisson;
 	
 	protected Menu(double prix, String plat, String boisson) {
-		this.id = id;
 		this.prix = prix;
 		this.plat = plat;
 		this.boisson = boisson;
