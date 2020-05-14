@@ -16,31 +16,27 @@ import javax.persistence.Table;
 public class Menu 
 {
 	@Id
-	@Column(name = "id", length = 11, nullable = false)
+	@Column(name = "id_m", length = 11, nullable = false)
 	protected int id;
 	
-	@Id
 	@Column(name = "entree", length = 50, nullable = false)
 	protected String entree;
-	
-	@Id
+
 	@Column(name = "plat", length = 50, nullable = false)
 	protected String plat;
-	
-	@Id
+
 	@Column(name = "dessert", length = 50, nullable = false)
 	protected String dessert;
-	
-	@Id
+
 	@Column(name = "boisson", length = 50, nullable = false)
 	protected String boisson;
-	
-	@Id
+
 	@Column(name = "prix")
 	protected double prix;
 	
 	@ManyToMany(mappedBy = "restaurants") //??
-	private List<Restaurant> restaurants = new ArrayList<>();  //en public peut être??
+	private List<Restaurant> restaurants = new ArrayList<>();  //A transformer en Restaurant sans liste
+	//exemple : visite + médecin
 	
 	
 	

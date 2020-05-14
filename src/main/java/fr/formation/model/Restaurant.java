@@ -6,6 +6,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,25 +16,28 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "restaurants")
-public class Restaurant /*implements Serializable*/
+public class Restaurant
 {
-	
-	
 	@Id
+	@Column(name = "id_R", length = 11, nullable=false)
+	protected int id;
+	
+	
 	@Column(name = "fourchette_prix", length = 10, nullable = false)
 	protected int fourchettePrix; 
 	
-	@Id
 	@Column(name = "nom", length = 50, nullable = false)
 	protected String nom;
 	
-	@Id
 	@Column(name = "menu", length = 50, nullable = false)
-	protected Menu menu;
+	protected Menu menu; // a transformer en liste avec les bons mappins
 	
-	@Id
+
 	@Column(name = "cuisines", length = 50, nullable = false)
+	@Enumerated(EnumType.STRING)
 	protected Cuisines cuisines;
+	
+	//Liste des clients (exemple : secrétaire + visite)
 	
 	
 	

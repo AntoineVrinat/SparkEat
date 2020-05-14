@@ -17,32 +17,32 @@ public class Client implements Serializable
 	//private static final long serialVersionUID = 1L;  qu'est ce que c'est ??
 	
 	@Id
-	@Column(name = "id", length = 11, nullable = false)
+	@Column(name = "id_c", length = 11, nullable = false)
 	protected int id;
 	
-	@Id
 	@Column(name = "nom", length = 50, nullable = false)
 	protected String nom;
-	
-	@Id
+
 	@Column(name = "login", length = 50, nullable = false)
 	protected String login;
 	
-	@Id
 	@Column(name = "passord", length = 50, nullable = false)
 	protected String password;
 
 	@ManyToMany(mappedBy = "restaurants")
-	private List<Restaurant> restaurants = new ArrayList<>();  //en public peut être??
+	private List<Restaurant> restaurants = new ArrayList<>();  //en public peut être?? NON.
 	
-	@ManyToMany(mappedBy = "menus")
-	private List<Menu> menus = new ArrayList<>();  //en public peut être??
+	
 
 	protected Client(int id, String nom, String login, String password) 
 	{
 		this.id = id;
 		this.nom = nom;
 		this.login = login;
+	}
+	protected Client(int id, String nom, String password) {
+		this.id = id;
+		this.nom = nom;
 		this.password = password;
 	}
 	
@@ -81,6 +81,8 @@ public class Client implements Serializable
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 
 
 	@Override
