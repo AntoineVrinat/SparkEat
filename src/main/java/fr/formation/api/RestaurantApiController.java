@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import fr.formation.dao.IDAOClient;
 import fr.formation.dao.IDAORestaurant;
 import fr.formation.model.Restaurant;
 import fr.formation.projection.Views;
@@ -27,13 +28,13 @@ public class RestaurantApiController
 	
 	@GetMapping
 	public List<Restaurant> findAll(){
-		return null;
+		return daoRestaurant.findAll();
 	}
 	
 	
 	@GetMapping("/{id}")
 	public Restaurant findById(@PathVariable int id) {
-		return new Restaurant();
+		return this.findById(id);
 	}
 	
 	@PostMapping
@@ -43,16 +44,17 @@ public class RestaurantApiController
 	
 	@DeleteMapping("/{id}")
 	public Restaurant delete(@PathVariable int id) {
-		return new Restaurant();
+		return this.delete(id);
 	}
 	
 	@PutMapping("/{id}")
 	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) {
-		return new Restaurant();
+		return r;
 	}
 	
 	@Autowired
 	private IDAORestaurant daoRestaurant;
 	
+
 }
 
