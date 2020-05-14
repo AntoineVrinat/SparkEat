@@ -40,7 +40,7 @@ public class Restaurant
 	@Enumerated(EnumType.STRING)
 	protected Cuisines cuisines;
 	
-	
+	 
 	@ManyToMany(mappedBy ="client")
 	private List<Client> client = new ArrayList<>();
 	
