@@ -1,7 +1,8 @@
 package fr.formation.model;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 
@@ -9,13 +10,16 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 
 
 @Entity
-@Table(name = "restaurants")
+@Table(name = "restaurant")
 public class Restaurant
 {
 	@Id
@@ -29,15 +33,16 @@ public class Restaurant
 	@Column(name = "nom", length = 50, nullable = false)
 	protected String nom;
 	
-	@Column(name = "menu", length = 50, nullable = false)
-	protected Menu menu; // a transformer en liste avec les bons mappins
+	@OneToMany(mappedBy = "menu")
+	private List<Menu> menus = new ArrayList<>(); 
 	
-
 	@Column(name = "cuisines", length = 50, nullable = false)
 	@Enumerated(EnumType.STRING)
 	protected Cuisines cuisines;
 	
-	//Liste des clients (exemple : secrétaire + visite)
+	
+	@ManyToMany(mappedBy ="client")
+	private List<Client> client = new ArrayList<>();
 	
 	
 	
@@ -45,7 +50,7 @@ public class Restaurant
 	protected Restaurant(int fourchettePrix, String nom, Menu menu, Cuisines cuisines) {
 		this.fourchettePrix = fourchettePrix;
 		this.nom = nom;
-		this.menu = menu;
+		menu = menu;
 		this.cuisines = cuisines;
 	}
 
@@ -54,6 +59,17 @@ public class Restaurant
 		
 	}
 	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getFourchettePrix() {
 		return fourchettePrix;
 	}
@@ -76,19 +92,17 @@ public class Restaurant
 		this.nom = nom;
 	}
 
+	
 
 
-	public Menu getMenu() {
-		return menu;
+
+	public List<Menu> getMenus() {
+		return menus;
 	}
 
-
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
 	}
-
-
 
 	public Cuisines getCuisines() {
 		return cuisines;
@@ -102,7 +116,7 @@ public class Restaurant
 
 	@Override
 	public String toString() {
-		return "Restaurant [fourchettePrix=" + fourchettePrix + ", nom=" + nom + ", menu=" + menu + ", cuisines="
+		return "Restaurant [fourchettePrix=" + fourchettePrix + ", nom=" + nom + ", menus=" + menus + ", cuisines="
 				+ cuisines + "]";
 	}
 

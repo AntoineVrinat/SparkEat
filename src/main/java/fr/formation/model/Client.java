@@ -14,8 +14,7 @@ import javax.persistence.Table;
 @Table(name = "client")
 public class Client implements Serializable
 {
-	//private static final long serialVersionUID = 1L;  qu'est ce que c'est ??
-	
+
 	@Id
 	@Column(name = "id_c", length = 11, nullable = false)
 	protected int id;
@@ -29,8 +28,8 @@ public class Client implements Serializable
 	@Column(name = "passord", length = 50, nullable = false)
 	protected String password;
 
-	@ManyToMany(mappedBy = "restaurants")
-	private List<Restaurant> restaurants = new ArrayList<>();  //en public peut être?? NON.
+	@ManyToMany(mappedBy = "restaurant")
+	private List<Restaurant> restaurants = new ArrayList<>();
 	
 	
 
@@ -39,14 +38,12 @@ public class Client implements Serializable
 		this.id = id;
 		this.nom = nom;
 		this.login = login;
-	}
-	protected Client(int id, String nom, String password) {
-		this.id = id;
-		this.nom = nom;
 		this.password = password;
 	}
 	
-
+	protected Client() {
+	}
+	
 	public int getId() {
 		return id;
 	}

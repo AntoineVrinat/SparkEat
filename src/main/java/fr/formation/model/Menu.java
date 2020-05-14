@@ -6,7 +6,10 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -34,9 +37,9 @@ public class Menu
 	@Column(name = "prix")
 	protected double prix;
 	
-	@ManyToMany(mappedBy = "restaurants") //??
-	private List<Restaurant> restaurants = new ArrayList<>();  //A transformer en Restaurant sans liste
-	//exemple : visite + médecin
+	@ManyToOne
+	@JoinColumn(name="id_r")
+	private Restaurant restaurant;
 	
 	
 	
@@ -105,7 +108,7 @@ public class Menu
 	public String toString() 
 	{
 		return "Menu [id=" + id + ", entree=" + entree + ", plat=" + plat + ", dessert=" + dessert + ", boisson="
-				+ boisson + ", prix=" + prix + ", restaurants=" + restaurants + "]";
+				+ boisson + ", prix=" + prix + ", restaurant=" + restaurant + "]";
 	}
 
 	
