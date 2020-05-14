@@ -44,7 +44,7 @@ public class Restaurant {
 		this.cuisines = cuisines;
 	}
 
-	protected Restaurant() {
+	public Restaurant() {
 
 	}
 

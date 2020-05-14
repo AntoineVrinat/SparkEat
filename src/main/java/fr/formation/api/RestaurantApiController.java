@@ -15,12 +15,44 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import fr.formation.dao.IDAORestaurant;
+import fr.formation.model.Restaurant;
 import fr.formation.projection.Views;
 
 @RestController 
 @CrossOrigin("*")
-@RequestMapping("/api/visite")
-public class VisiteApiController 
+@RequestMapping("/api/restaurant")
+public class RestaurantApiController 
 {
 	
+	@GetMapping
+	public List<Restaurant> findAll(){
+		return null;
+	}
+	
+	
+	@GetMapping("/{id}")
+	public Restaurant findById(@PathVariable int id) {
+		return new Restaurant();
+	}
+	
+	@PostMapping
+	public Restaurant add(@RequestBody Restaurant r) {
+		return new Restaurant();
+	}
+	
+	@DeleteMapping("/{id}")
+	public Restaurant delete(@PathVariable int id) {
+		return new Restaurant();
+	}
+	
+	@PutMapping("/{id}")
+	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) {
+		return new Restaurant();
+	}
+	
+	@Autowired
+	private IDAORestaurant daoRestaurant;
+	
 }
+
