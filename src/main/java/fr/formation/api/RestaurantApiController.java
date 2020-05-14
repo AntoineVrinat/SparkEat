@@ -2,6 +2,8 @@ package fr.formation.api;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,20 +28,23 @@ import fr.formation.projection.Views;
 public class RestaurantApiController 
 {
 	
+	@Autowired
+	private IDAORestaurant daoRestaurant;
+	
 	@GetMapping
 	public List<Restaurant> findAll(){
-		return daoRestaurant.findAll();
+		return this.daoRestaurant.findAll();
 	}
 	
 	
 	@GetMapping("/{id}")
 	public Restaurant findById(@PathVariable int id) {
-		return this.findById(id);
+		return this.daoRestaurant.findById(id).orElse(new Restaurant());
 	}
 	
 	@PostMapping
-	public Restaurant add(@RequestBody Restaurant r) {
-		return new Restaurant();
+	public Restaurant add(@Valid @RequestBody Restaurant r) {
+		return r;
 	}
 	
 	@DeleteMapping("/{id}")
@@ -51,9 +56,7 @@ public class RestaurantApiController
 	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) {
 		return r;
 	}
-	
-	@Autowired
-	private IDAORestaurant daoRestaurant;
+
 	
 
 }
