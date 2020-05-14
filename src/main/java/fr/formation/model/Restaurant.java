@@ -1,6 +1,5 @@
 package fr.formation.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,53 +14,40 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
-
 @Entity
 @Table(name = "restaurant")
-public class Restaurant
-{
+public class Restaurant {
 	@Id
-	@Column(name = "id_r", length = 11, nullable=false)
+	@Column(name = "id_r", length = 11, nullable = false)
 	protected int id;
-	
-	
+
 	@Column(name = "fourchette_prix", length = 10, nullable = false)
-	protected int fourchettePrix; 
-	
+	protected int fourchettePrix;
+
 	@Column(name = "nom", length = 50, nullable = false)
 	protected String nom;
-	
-	@OneToMany(mappedBy = "menu")
-	private List<Menu> menus = new ArrayList<>(); 
-	
+
+	@OneToMany(mappedBy = "restaurant")
+	private List<Menu> menus = new ArrayList<>();
+
 	@Column(name = "cuisines", length = 50, nullable = false)
 	@Enumerated(EnumType.STRING)
 	protected Cuisines cuisines;
-	
-	 
-	@ManyToMany(mappedBy ="client")
-	private List<Client> client = new ArrayList<>();
-	
-	
-	
 
-	protected Restaurant(int fourchettePrix, String nom, Menu menu, Cuisines cuisines) {
+	@ManyToMany(mappedBy = "restaurants")
+	private List<Client> clients = new ArrayList<>();
+
+	protected Restaurant(int fourchettePrix, String nom, List<Menu> menus, Cuisines cuisines) {
 		this.fourchettePrix = fourchettePrix;
 		this.nom = nom;
-		menu = menu;
+		this.menus = menus;
 		this.cuisines = cuisines;
 	}
 
-	protected Restaurant()
-	{
-		
+	protected Restaurant() {
+
 	}
-	
-	
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -74,27 +60,17 @@ public class Restaurant
 		return fourchettePrix;
 	}
 
-
-
 	public void setFourchettePrix(int fourchettePrix) {
 		this.fourchettePrix = fourchettePrix;
 	}
-
-
 
 	public String getNom() {
 		return nom;
 	}
 
-
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-	
-
-
 
 	public List<Menu> getMenus() {
 		return menus;
@@ -108,7 +84,13 @@ public class Restaurant
 		return cuisines;
 	}
 
+	public List<Client> getClients() {
+		return clients;
+	}
 
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
 
 	public void setCuisines(Cuisines cuisines) {
 		this.cuisines = cuisines;
@@ -120,10 +102,4 @@ public class Restaurant
 				+ cuisines + "]";
 	}
 
-
-	
-
 }
-
-
-

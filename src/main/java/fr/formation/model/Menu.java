@@ -12,16 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "menu")
-public class Menu 
-{
+public class Menu {
 	@Id
 	@Column(name = "id_m", length = 11, nullable = false)
 	protected int id;
-	
+
 	@Column(name = "entree", length = 50, nullable = false)
 	protected String entree;
 
@@ -36,15 +33,12 @@ public class Menu
 
 	@Column(name = "prix")
 	protected double prix;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_r")
+	@JoinColumn(name = "id_r")
 	private Restaurant restaurant;
-	
-	
-	
-	protected Menu( int id, String entree, String plat,  String dessert, String boisson, double prix) 
-	{
+
+	protected Menu(int id, String entree, String plat, String dessert, String boisson, double prix) {
 		this.id = id;
 		this.entree = entree;
 		this.plat = plat;
@@ -53,9 +47,9 @@ public class Menu
 		this.prix = prix;
 	}
 
-	protected Menu() {	}
+	protected Menu() {
+	}
 
-	
 	public double getId() {
 		return id;
 	}
@@ -63,7 +57,7 @@ public class Menu
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public double getPrix() {
 		return prix;
 	}
@@ -104,16 +98,18 @@ public class Menu
 		this.boisson = boisson;
 	}
 
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
 	@Override
-	public String toString() 
-	{
+	public String toString() {
 		return "Menu [id=" + id + ", entree=" + entree + ", plat=" + plat + ", dessert=" + dessert + ", boisson="
 				+ boisson + ", prix=" + prix + ", restaurant=" + restaurant + "]";
 	}
 
-	
-
-	
-	
-	
 }

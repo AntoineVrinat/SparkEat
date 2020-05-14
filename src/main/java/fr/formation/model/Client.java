@@ -12,38 +12,34 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "client")
-public class Client implements Serializable
-{
+public class Client implements Serializable {
 
 	@Id
 	@Column(name = "id_c", length = 11, nullable = false)
 	protected int id;
-	
+
 	@Column(name = "nom", length = 50, nullable = false)
 	protected String nom;
 
 	@Column(name = "login", length = 50, nullable = false)
 	protected String login;
-	
+
 	@Column(name = "passord", length = 50, nullable = false)
 	protected String password;
 
-	@ManyToMany(mappedBy = "restaurant")
+	@ManyToMany
 	private List<Restaurant> restaurants = new ArrayList<>();
-	
-	
 
-	protected Client(int id, String nom, String login, String password) 
-	{
+	protected Client(int id, String nom, String login, String password) {
 		this.id = id;
 		this.nom = nom;
 		this.login = login;
 		this.password = password;
 	}
-	
+
 	protected Client() {
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -59,34 +55,34 @@ public class Client implements Serializable
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+
 	public String getLogin() {
 		return login;
 	}
-
 
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
+	public List<Restaurant> getRestaurants() {
+		return restaurants;
+	}
+
+	public void setRestaurants(List<Restaurant> restaurants) {
+		this.restaurants = restaurants;
+	}
 
 	@Override
 	public String toString() {
 		return "Client [id=" + id + ", nom=" + nom + ", login=" + login + ", password=" + password + "]";
 	}
-	
-	
-	
+
 }
