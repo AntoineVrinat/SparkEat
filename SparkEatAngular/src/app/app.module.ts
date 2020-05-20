@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ChoixRestaurantComponent } from './choix-restaurant/choix-restaurant.component';
+import { ChoixMenuComponent } from './choix-menu/choix-menu.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
     HomeComponent,
     InscriptionComponent,
     ConnexionComponent,
-    ChoixRestaurantComponent
+    ChoixRestaurantComponent,
+    ChoixMenuComponent
   ],
   imports: 
   [

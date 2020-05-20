@@ -1,1 +1,25 @@
-<p>choix-restaurant works!</p>
+<h1>choix-restaurant works!</h1>
+<div type="body">
+<div >
+	<div >
+		<h5 >Choix du Restaurants</h5>
+	</div>
+	
+	<div >
+		<div class="form-group row">
+			<label for="fourchette_prix" class="col-sm-2 col-form-label">Fourchette de Prix </label>
+			<div class="col-sm-10">
+				<input type="number" class="form-control" id="fourchette_prix" [(ngModel)]="filterFourchettePrix" />
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="Cuisines" class="col-sm-2 col-form-label">Quelles types de cuisines vouslez vous gouter aujourd'hui? </label>
+			<div class="col-sm-10">
+				<input type="string" class="form-control" id="Cuisines" [(ngModel)]="filterCuisines" />
+			</div>
+		</div>
+    </div>
+    </div>
+    </div>
+    
