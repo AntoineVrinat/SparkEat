@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+	background-image: url("Background.jpg");
+	background-position: fixed;
+	background-repeat: repeat;
+}
+
+body{
+	font-family: "trebuchet ms", sans-serif;
+	text-align: center;
+	overflow: hidden;
+	opacity: 1;
+	user-select: text;
+	
+}
+
+#home {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+#home > * {
+	background: white;
+	font-size: 54px;
+}
+
+#home #logo {
+	margin-bottom: 40px;
+}
+
+#home #logo img {
+	width: 300px;
+	top: 10%;
+	left:42%;
+	cursor: none;
+	border:4px solid pink;
+}
+
+#home #connexion,
+#home #inscription {
+	width: 25vw;
+	padding: 10px;
+	margin-bottom: 30px;
+	transition: all 0.25s ease-in-out;
+	cursor: pointer;
+	border: 4px solid pink;
+}
+
+
+#home #connexion:hover,
+#home #inscription:hover {
+	background: pink;
+}
+
+#home #formulaire {
+	width:15vw;
+	padding: 10px;
+	text-align: left;
+	font-size: 20px;
+	border:4px solid #F5C5C5;
+}
+
+#home #formulaire a {
+	width:3vw;
+}
+
+#home #formulaire input[type=text],input[type=email], input[type=password] {
+	display: block;
+	margin-bottom: 20px;
+	border:2px solid #F5C5C5;
+	border-radius:5px;
+	padding:3px;
+	box-shadow:1px 1px 2px #C0C0C0 inset;
+	
+}
+
+
+#home #formulaire input[type=submit] {
+	
+	width: 10vw;
+	padding: 10px;
+	transition: all 0.25s ease-in-out;
+	cursor: pointer;
+	box-shadow:1px 1px 1px #D83F3D;
+	border: 2px solid pink;
+}
+
+input:invalid {
+	background-color: #D83F3D;
+  }
+
+
+#error{color:red;}
