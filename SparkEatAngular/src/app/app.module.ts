@@ -14,12 +14,12 @@ import { ChoixMenuComponent } from './choix-menu/choix-menu.component';
 
 
 const routes: Routes = [
-  { path: 'accueil', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'connexion', component: ConnexionComponent },
-  { path: 'choixRestaurant', component: ChoixRestaurantComponent },
-//  { path: 'choixCuisine', component: ChoixCuisinesComponent },
-//  { path: 'choixMenu', component: ChoixMenuComponent },
+  { path: 'choix-restaurant', component: ChoixRestaurantComponent },
+//  { path: 'choix-cuisine', component: ChoixCuisinesComponent },
+  { path: 'choix-menu', component: ChoixMenuComponent },
   { path: 'commande', component: CommandeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: HomeComponent }

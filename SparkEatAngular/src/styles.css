@@ -2,17 +2,35 @@ html{
 	background-image: url("Background.jpg");
 	background-position: fixed;
 	background-repeat: repeat;
+	
 }
 
-body{
+.body1
+{
+	background-image : url("https://previews.123rf.com/images/rawpixel/rawpixel1610/rawpixel161007957/63653613-diversit%C3%A9-femmes-groupe-suspendre-manger-ensemble-concept.jpg");
 	font-family: "trebuchet ms", sans-serif;
+	background-repeat: repeat;
 	text-align: center;
 	overflow: hidden;
 	opacity: 1;
 	user-select: text;
 	
 }
-
+.card
+{
+	background: transparent;
+	padding: 15% ;
+	
+}
+body
+{
+	font-family: "trebuchet ms", sans-serif;
+	text-align: center;
+	overflow: hidden;
+	opacity: 1;
+	user-select: text;
+}
+	
 #home {
 	display: flex;
 	align-items: center;
