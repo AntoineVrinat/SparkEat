@@ -40,7 +40,7 @@ public class RestaurantApiController
 	}
 	
 	
-	@GetMapping("/{id_r}")
+	@GetMapping("/{id}")
 	@JsonView(Views.Restaurant.class)
 	public Restaurant findById(@PathVariable int id) {
 		return this.daoRestaurant.findById(id).orElse(new Restaurant());
@@ -59,7 +59,7 @@ public class RestaurantApiController
 		return r;
 	}
 	
-	@DeleteMapping("/{id_r}")
+	@DeleteMapping("/{id}")
 	public boolean delete(@PathVariable int id) 
 	{
 		try
@@ -73,13 +73,13 @@ public class RestaurantApiController
 		}
 	}
 	
-	@PutMapping("/{id_r}")
-	@JsonView(Views.Restaurant.class)
-	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) 
-	{
-		r.setId(id);
-		return this.daoRestaurant.save(r);
-	}
+//	@PutMapping("/{id}")
+//	@JsonView(Views.Restaurant.class)
+//	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) 
+//	{
+//		r.setId(id);
+//		return this.daoRestaurant.save(r);
+//	}
 
 	
 

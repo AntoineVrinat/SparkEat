@@ -41,7 +41,7 @@ public class MenuApiController
 	}
 	
 	
-	@GetMapping("/{id_m}")
+	@GetMapping("/{id}")
 	@JsonView(Views.Menu.class)
 	public Menu findById(@PathVariable int id) {
 		return this.daoMenu.findById(id).orElse(new Menu());
@@ -61,7 +61,7 @@ public class MenuApiController
 		return m;
 	}
 	
-	@DeleteMapping("/{id_m}")
+	@DeleteMapping("/{id}")
 	public boolean delete(@PathVariable int id) 
 	{
 		try
@@ -75,7 +75,7 @@ public class MenuApiController
 		}
 	}
 	
-	@PutMapping("/{id_m}")
+	@PutMapping("/{id}")
 	@JsonView(Views.Menu.class)
 	public Menu update(@PathVariable int id, @RequestBody Menu m) 
 	{

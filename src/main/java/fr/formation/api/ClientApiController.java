@@ -41,7 +41,7 @@ public class ClientApiController
 	}
 	
 	
-	@GetMapping("/{id_c}")
+	@GetMapping("/{id}")
 	@JsonView(Views.Client.class)
 	public Client findById(@PathVariable int id)
 	{
@@ -64,7 +64,7 @@ public class ClientApiController
 		return c;
 	}
 	
-	@DeleteMapping("/{id_c}")
+	@DeleteMapping("/{id}")
 	public boolean delete(@PathVariable int id) // ou c'est ici l'id_c
 	{
 		try
@@ -78,14 +78,6 @@ public class ClientApiController
 		}
 	}
 	
-	@PutMapping("/{id_c}")
-	@JsonView(Views.Client.class)
-	public Client update(@PathVariable int id, @RequestBody Client c) 
-	{
-		c.setId(id);
-		return this.daoClient.save(c);
-	}
-
 	
 
 }
