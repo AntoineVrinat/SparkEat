@@ -15,7 +15,7 @@ export class InscriptionComponent implements OnInit {
   ngOnInit() {
     this.srvClient.reload();
   }
-  public ajouterClient() {
-    this.srvClient.add(this.formInscription);
+  public InscriptionClient() {
+    this.srvClient.Inscription(this.formInscription);
   }
 }

@@ -42,13 +42,8 @@ export class ClientService {
       })
   }
 
-  public delete(c) {
-    this.http.delete<Boolean>(`${ this.apiUrl }/${ c.id_c }`)
-        .subscribe(resp => {
-          if (resp) {
-            let index = this.clients.indexOf(c);
-            this.clients.splice(index, 1);
-          }
-        });
-}
-}
+  public Inscription(c){
+    this.http.post<Client>(`${this.apiUrl}/inscription`, c)
+      .subscribe(respClient =>`${this.apiUrl}/home`);
+      }
+  }

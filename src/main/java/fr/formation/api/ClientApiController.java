@@ -56,7 +56,7 @@ public class ClientApiController
 	
 	@PostMapping
 	@JsonView(Views.Client.class)
-	public Client add(@Valid @RequestBody Client c, BindingResult result)
+	public Client inscription(@Valid @RequestBody Client c, BindingResult result)
 	{
 		if (result.hasErrors())
 		{
@@ -67,9 +67,9 @@ public class ClientApiController
 		return c;
 	}
 	
-	@PostMapping("/connexion")
+	@PostMapping
 	@JsonView(Views.Client.class)
-	public Client connection(@RequestBody Client c) 
+	public Client connexion(@Valid @RequestBody Client c, BindingResult result) 
 	{	
 		c = this.daoClient.checkConnect(c.getLogin(), c.getPassword());
 		
