@@ -32,7 +32,7 @@ public class ClientController
 	@Autowired
 	private IDAORestaurant daoRestaurant;
 	
-	@GetMapping({"/","/home","/connection"})
+	@GetMapping({"/","/home","/connexion"})
 	public String homeInscription(HttpSession session, Model model) 
 	{
 		model.addAttribute("message",session.getAttribute("message"));
@@ -40,7 +40,7 @@ public class ClientController
 		return "accueil";
 	}
 	
-	@GetMapping("/deconnection")
+	@GetMapping("/deconnexion")
 	public String deconnection(HttpSession session)
 	{
 		session.removeAttribute("Client");
@@ -48,7 +48,7 @@ public class ClientController
 	}
 	
 	
-	@PostMapping("/connection")
+	@PostMapping("/connexion")
 	public String connection(@RequestParam(value="login") String login, @RequestParam(value="password") String password, Model model, HttpSession session) 
 	{	
 		Client c = this.daoClient.checkConnect(login, password);
@@ -57,7 +57,7 @@ public class ClientController
 		{
 			model.addAttribute("login", login);
 			model.addAttribute("error", "Le login/password est incorrect");
-			System.out.println("Mauvaise connection");
+			System.out.println("Mauvaise connexion");
 			return "accueil";
 		}
 		return null;

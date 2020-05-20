@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
 import { RestaurantService } from '../restaurant.service';
 import { MenuService } from '../menu.service';
 import { Cuisines } from '../cuisines';
+=======
+import { ClientService } from '../client.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-choix-restaurant',
@@ -13,6 +17,7 @@ export class ChoixRestaurantComponent implements OnInit
   filterFourchettePrix: number;
   filterCuisines: string
 
+<<<<<<< Updated upstream
   constructor
   (
     private srvRestaurant : RestaurantService,
@@ -42,3 +47,15 @@ export class ChoixRestaurantComponent implements OnInit
   
   }
   
+=======
+  constructor(private srvClient: ClientService) { }
+
+  ngOnInit(){
+
+  }
+
+  public choix(){
+    
+  }
+}
+>>>>>>> Stashed changes

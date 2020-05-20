@@ -17,6 +17,5 @@ export class InscriptionComponent implements OnInit {
   }
   public ajouterClient() {
     this.srvClient.add(this.formInscription);
-    this.formInscription = new Client();
   }
 }
