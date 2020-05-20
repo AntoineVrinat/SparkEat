@@ -18,53 +18,55 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAORestaurant;
-import fr.formation.exception.RestaurantValidationException;
+import fr.formation.dao.IDAOMenu;
+import fr.formation.exception.MenuValidationException;
+import fr.formation.model.Menu;
 import fr.formation.model.Restaurant;
 import fr.formation.projection.Views;
 
 @RestController 
 @CrossOrigin("*")
-@RequestMapping("/api/restaurant")
-public class RestaurantApiController 
+@RequestMapping("/api/menu")
+public class MenuApiController 
 {
 	
 	@Autowired
-	private IDAORestaurant daoRestaurant;
+	private IDAOMenu daoMenu;
 	
 	@GetMapping
-	@JsonView(Views.Restaurant.class)
-	public List<Restaurant> findAll(){
-		return this.daoRestaurant.findAll();
+	@JsonView(Views.Menu.class)
+	public List<Menu> findAll(){
+		return this.daoMenu.findAll();
 
 	}
 	
 	
-	@GetMapping("/{id_r}")
-	@JsonView(Views.Restaurant.class)
-	public Restaurant findById(@PathVariable int id) {
-		return this.daoRestaurant.findById(id).orElse(new Restaurant());
+	@GetMapping("/{id_m}")
+	@JsonView(Views.Menu.class)
+	public Menu findById(@PathVariable int id) {
+		return this.daoMenu.findById(id).orElse(new Menu());
 	}
 	
 	
 	@PostMapping
-	@JsonView(Views.Restaurant.class)
-	public Restaurant add(@Valid @RequestBody Restaurant r, BindingResult result)
+	@JsonView(Views.Menu.class)
+	public Menu add(@Valid @RequestBody Menu m, BindingResult result)
 	{
 		if (result.hasErrors())
 		{
-		throw new RestaurantValidationException();
+		throw new MenuValidationException();
 		}
-		this.daoRestaurant.save(r);
-		return r;
+		this.daoMenu.save(m);
+
+		return m;
 	}
 	
-	@DeleteMapping("/{id_r}")
+	@DeleteMapping("/{id_m}")
 	public boolean delete(@PathVariable int id) 
 	{
 		try
 		{
-			this.daoRestaurant.deleteById(id);
+			this.daoMenu.deleteById(id);
 			return true;
 		}
 		
@@ -73,12 +75,12 @@ public class RestaurantApiController
 		}
 	}
 	
-	@PutMapping("/{id_r}")
-	@JsonView(Views.Restaurant.class)
-	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) 
+	@PutMapping("/{id_m}")
+	@JsonView(Views.Menu.class)
+	public Menu update(@PathVariable int id, @RequestBody Menu m) 
 	{
-		r.setId(id);
-		return this.daoRestaurant.save(r);
+		m.setId(id);
+		return this.daoMenu.save(m);
 	}
 
 	

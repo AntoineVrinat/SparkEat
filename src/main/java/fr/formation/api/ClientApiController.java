@@ -18,53 +18,58 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fr.formation.dao.IDAORestaurant;
-import fr.formation.exception.RestaurantValidationException;
+import fr.formation.dao.IDAOClient;
+import fr.formation.exception.ClientValidationException;
+import fr.formation.model.Client;
 import fr.formation.model.Restaurant;
 import fr.formation.projection.Views;
 
 @RestController 
 @CrossOrigin("*")
-@RequestMapping("/api/restaurant")
-public class RestaurantApiController 
+@RequestMapping("/api/client")
+public class ClientApiController 
 {
 	
 	@Autowired
-	private IDAORestaurant daoRestaurant;
+	private IDAOClient daoClient;
 	
 	@GetMapping
-	@JsonView(Views.Restaurant.class)
-	public List<Restaurant> findAll(){
-		return this.daoRestaurant.findAll();
+	@JsonView(Views.Client.class)
+	public List<Client> findAll(){
+		return this.daoClient.findAll();
 
 	}
 	
 	
-	@GetMapping("/{id_r}")
-	@JsonView(Views.Restaurant.class)
-	public Restaurant findById(@PathVariable int id) {
-		return this.daoRestaurant.findById(id).orElse(new Restaurant());
+	@GetMapping("/{id_c}")
+	@JsonView(Views.Client.class)
+	public Client findById(@PathVariable int id)
+	{
+		return this.daoClient
+				.findById(id)
+				.orElse(new Client());
 	}
 	
 	
 	@PostMapping
-	@JsonView(Views.Restaurant.class)
-	public Restaurant add(@Valid @RequestBody Restaurant r, BindingResult result)
+	@JsonView(Views.Client.class)
+	public Client add(@Valid @RequestBody Client c, BindingResult result)
 	{
 		if (result.hasErrors())
 		{
-		throw new RestaurantValidationException();
+		throw new ClientValidationException();
 		}
-		this.daoRestaurant.save(r);
-		return r;
+		this.daoClient.save(c);
+
+		return c;
 	}
 	
-	@DeleteMapping("/{id_r}")
-	public boolean delete(@PathVariable int id) 
+	@DeleteMapping("/{id_c}")
+	public boolean delete(@PathVariable int id) // ou c'est ici l'id_c
 	{
 		try
 		{
-			this.daoRestaurant.deleteById(id);
+			this.daoClient.deleteById(id);
 			return true;
 		}
 		
@@ -73,12 +78,12 @@ public class RestaurantApiController
 		}
 	}
 	
-	@PutMapping("/{id_r}")
-	@JsonView(Views.Restaurant.class)
-	public Restaurant update(@PathVariable int id, @RequestBody Restaurant r) 
+	@PutMapping("/{id_c}")
+	@JsonView(Views.Client.class)
+	public Client update(@PathVariable int id, @RequestBody Client c) 
 	{
-		r.setId(id);
-		return this.daoRestaurant.save(r);
+		c.setId(id);
+		return this.daoClient.save(c);
 	}
 
 	

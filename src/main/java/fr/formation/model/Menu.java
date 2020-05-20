@@ -47,7 +47,7 @@ public class Menu {
 		this.prix = prix;
 	}
 
-	protected Menu() {
+	public Menu() {
 	}
 
 	public double getId() {

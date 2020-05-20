@@ -37,7 +37,7 @@ public class Client implements Serializable {
 		this.password = password;
 	}
 
-	protected Client() {
+	public Client() {
 	}
 
 	public int getId() {
