@@ -8,7 +8,7 @@ import { Client } from '../client';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-  private formConnexion: Client;
+  private formConnexion: Client = new Client();
 
   constructor(private srvClient: ClientService) { }
 

@@ -30,10 +30,10 @@ export class ClientService {
     this.http.post<Client>(`${this.apiUrl}/connexion`, client)
       .subscribe(respClient => {
         if (respClient == null) {
-          `${this.apiUrl}/connexion`;
+          alert('Identifiants incorrects')
         }
         else if(respClient !== null){
-          this.router.navigate([`${this.apiUrl}/choix-restaurant`]);
+          this.router.navigate([`/choix-restaurant`]);
         }
           // si respClient est NULL : on ne fait rien (alert pas bon)
           //si respClient est pas null : on redirige vers la page 'choix'

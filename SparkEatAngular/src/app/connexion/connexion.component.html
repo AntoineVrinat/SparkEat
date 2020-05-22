@@ -2,10 +2,10 @@
     <div id="logo"><img src="assets/logo.jpg"></div>
         <div id=formulaire>
             <a>Login:</a>
-            <input type="text" name="login" size="30" maxlength="40" id="login"/>
+            <input [(ngModel)]="formConnexion.login" type="text" name="login" size="30" maxlength="40" id="login"/>
             
             <a>Password:</a>
-            <input type="password" name="password" size="30" maxlength="40" id="password"/>
+            <input [(ngModel)]="formConnexion.password" type="password" name="password" size="30" maxlength="40" id="password"/>
             
             <input (click)="connexionClient()" id="button1" value="Manger" type="submit"/>
         </div>
