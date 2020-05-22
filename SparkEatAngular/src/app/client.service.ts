@@ -46,7 +46,7 @@ export class ClientService {
     this.http.post<Client>(`${this.apiUrl}/inscription`, c)
     .subscribe(respClient => {
       if (respClient == null) {
-        alert('OUPS')
+        alert('Champs invalides')
       }
       else if(respClient !== null){
         this.router.navigate([`/home`]);
