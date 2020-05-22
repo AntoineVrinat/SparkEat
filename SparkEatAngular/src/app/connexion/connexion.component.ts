@@ -15,7 +15,7 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
     this.srvClient.reload();
   }
-  public ConnexionClient() {
+  public connexionClient() {
     this.srvClient.Connexion(this.formConnexion);
   }
 }

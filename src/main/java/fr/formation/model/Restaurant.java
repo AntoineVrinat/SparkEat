@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.ManyToMany;
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 @Table(name = "restaurant")
 public class Restaurant {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_r", length = 11, nullable = false)
 	protected int id;
 

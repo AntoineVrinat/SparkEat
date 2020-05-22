@@ -8,7 +8,7 @@ import { Client } from '../client';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  private formInscription: Client = new Client();
+  public formInscription: Client = new Client();
 
   constructor(private srvClient: ClientService) { }
 
