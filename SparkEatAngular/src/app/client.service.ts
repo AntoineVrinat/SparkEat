@@ -44,6 +44,13 @@ export class ClientService {
 
   public Inscription(c){
     this.http.post<Client>(`${this.apiUrl}/inscription`, c)
-      .subscribe(respClient =>`${this.apiUrl}/home`);
+    .subscribe(respClient => {
+      if (respClient == null) {
+        alert('OUPS')
       }
+      else if(respClient !== null){
+        this.router.navigate([`/home`]);
+      }
+    })
   }
+}

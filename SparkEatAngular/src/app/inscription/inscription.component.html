@@ -1,19 +1,19 @@
 <div id="home">
-    <div id="logo"><img src="logo.jpg"></div>
+    <div id="logo"><img src="assets/logo.jpg"></div>
         <div id=formulaire>
-        <form method="POST" action="home" name="formInscription">
-            <a>Email:</a>
-            <input type="email" name="email" size="30" maxlength="40" placeholder="toto@gmail.com" spellcheck="true" id="email"/>
+        <div>
+            <a>Login:</a>
+            <input [(ngModel)]="formInscription.login" type="text" name="login" id="login"/>
 
-            <a>Prénom:</a>
-            <input type="text" name="prenom" size="30" maxlength="" placeholder="ex:Jordan" id="prenom"/>
+            <a>Password:</a>
+            <input [(ngModel)]="formInscription.password" type="password" name="password" id="password"/>
             
             <a>Nom:</a>
-            <input type="text" name="nom" size="30" maxlength="40" placeholder="ex:Abid" id="nom"/>
+            <input [(ngModel)]="formInscription.nom" type="text" name="nom" id="nom"/>
             
-            <input id="button1" value="Sign on" type="submit"/>
-        </form>
+            <input (click)="ajouterClient()" id="button1" value="Sign on" type="submit"/>
         </div>
+    </div>
 
     
 

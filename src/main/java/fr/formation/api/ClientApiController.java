@@ -54,7 +54,7 @@ public class ClientApiController
 	}
 	
 	
-	@PostMapping
+	@PostMapping("/inscription")
 	@JsonView(Views.Client.class)
 	public Client inscription(@Valid @RequestBody Client c, BindingResult result)
 	{
