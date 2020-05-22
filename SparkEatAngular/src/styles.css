@@ -4,43 +4,56 @@ html{
 	background-repeat: repeat;
 	
 }
-
 .body1
 {
-	background-image : url("https://previews.123rf.com/images/rawpixel/rawpixel1610/rawpixel161007957/63653613-diversit%C3%A9-femmes-groupe-suspendre-manger-ensemble-concept.jpg");
-	font-family: "trebuchet ms", sans-serif;
-	background-repeat: repeat;
-	text-align: center;
-	overflow: hidden;
-	opacity: 1;
-	user-select: text;
-	
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-left: 35%;
+	height: 45vw;
+	width: 30vw;
+	background-image: url("assets/Restaurants.jpg");
+	background-size: cover;
+	opacity: 0.85;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
 }
-.card
+
+.card1
 {
-	background: transparent;
-	padding: 15% ;
+	margin-top: 25px;
+	text-size-adjust: 45px;
 	
 }
+.card2
+{
+	text-size-adjust: 45px;
+	
+}
+
 body
 {
+	background-image: url("assets/Background.jpg");
 	font-family: "trebuchet ms", sans-serif;
 	text-align: center;
 	overflow: hidden;
 	opacity: 1;
 	user-select: text;
 }
-	
-#home {
+
+#home 
+{
+
 	background-image: url("assets/Background.jpg");
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-
 }
-#home > * {
-	background: white;
-	font-size: 54px;
+
+#home >*
+{
+	background : white;
+	font-size : 54px;
 }
 
 #home #logo {
@@ -48,7 +61,8 @@ body
 	margin-top: 5%;
 }
 
-#home #logo img {
+#home #logo img 
+{
 	width: 300px;
 	left:42%;
 	cursor: none;

@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ChoixRestaurantComponent } from './choix-restaurant/choix-restaurant.component';
-import { ChoixMenuComponent } from './choix-menu/choix-menu.component';
+
 
 
 const routes: Routes = [
@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'choix-restaurant', component: ChoixRestaurantComponent },
 //  { path: 'choix-cuisine', component: ChoixCuisinesComponent },
-  { path: 'choix-menu', component: ChoixMenuComponent },
   { path: 'commande', component: CommandeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: HomeComponent }
@@ -34,7 +33,7 @@ const routes: Routes = [
     InscriptionComponent,
     ConnexionComponent,
     ChoixRestaurantComponent,
-    ChoixMenuComponent
+
   ],
   imports: 
   [
